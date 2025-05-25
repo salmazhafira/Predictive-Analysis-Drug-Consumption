@@ -753,11 +753,11 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
   $$
 
   Metrik ini mengukur rata-rata selisih absolut antara nilai aktual dan nilai prediksi. MAE mudah dipahami karena menggunakan satuan yang sama dengan target, dan tidak terlalu sensitif terhadap outlier.
-  
+
 - **Mean Squared Error (MSE):**
   
   $$
-  MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)
+  MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
   $$
 
   MSE mengkuadratkan selisih prediksi agar penalti terhadap kesalahan besar menjadi lebih tinggi. Metrik ini lebih sensitif terhadap outlier dibanding MAE.
