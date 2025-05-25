@@ -173,7 +173,7 @@ Nilai variabel ini bersifat kategorikal dan menggambarkan riwayat penggunaan zat
     Status penyalahgunaan zat volatil.
 
 --- 
-
+**Tabel. Tipe Data**
 | #   | Column           | Non-Null Count | Dtype   |
 |-----|------------------|----------------|---------|
 | 0   | Age              | 1885           | object  |
@@ -215,6 +215,7 @@ Nilai variabel ini bersifat kategorikal dan menggambarkan riwayat penggunaan zat
 Hal ini menunjukkan bahwa data tidak memerlukan penanganan nilai hilang.
 
 ---
+**Tabel. Deskriptif Data**
 | Statistic | Nscore    | Escore    | Oscore    | Ascore    | Cscore    | Impulsive | SS        |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | count     | 1885.0000 | 1885.0000 | 1885.0000 | 1885.0000 | 1885.0000 | 1885.0000 | 1885.0000 |
@@ -229,7 +230,7 @@ Hal ini menunjukkan bahwa data tidak memerlukan penanganan nilai hilang.
 Hasil deskriptif data menunjukkan bahwa seluruh variabel numerik memiliki 1.885 data, tanpa missing values. Skor kepribadian, impulsivitas, dan sensation seeking sudah dalam bentuk z-score (mean ≈ 0, std ≈ 1), menandakan data telah dinormalisasi. Nilai minimum dan maksimum yang cukup ekstrim mengindikasikan potensi outlier. Distribusi terlihat simetris (median ≈ 0)
 
 ### **Pemeriksaan Outlier dan Penanganannya**
-![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Sebelum%20penanganan%20outlier.png)
+![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Sebelum%20penanganan%20outlier.png)
 
 Sebelum dilakukan penanganan, visualisasi boxplot pada lima dimensi skor kepribadian (Nscore, Escore, Oscore, Ascore, dan Cscore) dan impulsivitas menunjukkan adanya sejumlah outlier. Hal ini terlihat dari adanya titik-titik di luar rentang whisker pada boxplot. Meskipun data telah dinormalisasi, nilai-nilai ekstrem masih tetap dapat terdeteksi karena proses normalisasi tidak menghilangkan outlier.
 
@@ -241,17 +242,17 @@ Penanganan dilakukan menggunakan metode Z-score, di mana data dengan nilai Z leb
 
 - Median lebih robust terhadap outlier, sehingga dapat mengurangi distorsi tanpa menggeser distribusi secara ekstrem.
 
-![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Setelah%20penanganan%20outlier.png)
+![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Setelah%20penanganan%20outlier.png)
 
 Setelah penanganan, boxplot menunjukkan distribusi yang lebih merata dan jumlah outlier yang jauh berkurang, terkhusus untuk Impulsive yang tidaak terdapat outlier lagi. Hal ini menunjukkan bahwa proses penggantian berhasil mereduksi nilai-nilai ekstrem tanpa mengubah pola data secara signifikan.
 
 ### **Univariate Analysis**
 
-![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/KDE%20variabel%20numerik.png)
+![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/KDE%20variabel%20numerik.png)
 
 Gambar di atas menampilkan histogram dengan kurva Kernel Density Estimation (KDE) untuk setiap variabel numerik dalam dataset, sebagian besar variabel kepribadian (Nscore hingga Cscore) menunjukkan pola distribusi yang cukup simetris dan menyerupai distribusi normal, yang sesuai dengan karakteristik data yang telah dinormalisasi. Sedangkan variabel Impulsive dan Sensation Seeking (SS) terlihat sedikit menyimpang dari normal, dengan bentuk yang lebih miring (skewed), menunjukkan adanya variasi atau ketidakseimbangan dalam persebaran nilai responden.
 
-![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Distribusi%20variabel%20kategorik.png)
+![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Distribusi%20variabel%20kategorik.png)
 
 Visualisasi barplot di atas menampilkan distribusi frekuensi dari seluruh variabel kategorikal yang ada dalam dataset.
 1. Age
@@ -303,7 +304,7 @@ Visualisasi barplot di atas menampilkan distribusi frekuensi dari seluruh variab
 ### **Multivariate Analysis**
 #### **Korelasi antar fitur numerik**
 
-![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Korelasi%20antar%20fitur%20numerik.png)
+![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Korelasi%20antar%20fitur%20numerik.png)
 
 Visualisasi Heatmap di atas menunjukkan korelasi antara variabel numerik sebagai berikut.
 
@@ -327,7 +328,7 @@ Visualisasi Heatmap di atas menunjukkan korelasi antara variabel numerik sebagai
 - Korelasi antar sebagian besar skor (Openness to Experience (Oscore) dan Agreeableness (Ascore)) tergolong lemah atau tidak signifikan secara praktis.
 
 #### **Personality Traits vs Drug Use Alcohol**
-![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Personality%20traits%20VS%20Alcohol%20use%20categories.png)
+![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Personality%20traits%20VS%20Alcohol%20use%20categories.png)
 
 Berdasarkan visualisasi pointplot antara skor kepribadian (Big Five) dengan kategori penggunaan alkohol (CL0–CL6), ditemukan beberapa pola yang cukup konsisten:
 
@@ -363,7 +364,7 @@ Berdasarkan visualisasi pointplot antara skor kepribadian (Big Five) dengan kate
 - Agreeableness & Conscientiousness*: Jelas lebih rendah pada pengguna alkohol, terutama rutin (CL4 ke atas).
 
 #### **Distribusi dan hubungan variabel demografi terhadap status penggunaan zat Alkohol**
-![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Distribusi%20variabel%20demografi%20terhadap%20penggunaan%20alkohol.png)
+![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Distribusi%20variabel%20demografi%20terhadap%20penggunaan%20alkohol.png)
 
 Berdasarkan visualisasi barplot demografi terhadap status penggunaan alcohol, dapat diketahui sebagai berikut
 
@@ -380,7 +381,7 @@ Berdasarkan visualisasi barplot demografi terhadap status penggunaan alcohol, da
   Orang dengan pendidikan “University degree” paling banyak dalam kategori konsumsi alkohol tinggi (CL5), disusul oleh yang hanya memiliki “Some college/university, no degree.” Sebaliknya, mereka yang berhenti sekolah di usia muda cenderung lebih sedikit mengonsumsi alkohol. Artinya, semakin tinggi pendidikan, kecenderungan konsumsi alkohol juga meningkat.
   
 #### **Personality vs Drug Use**
-![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Personality%20VS%20use%20drugs.png)
+![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Personality%20VS%20use%20drugs.png)
 
 Visualisasi Heatmap di atas menunjukkan hubungan (korelasi) antara tujuh dimensi kepribadian dan penggunaan berbagai jenis zat (obat-obatan atau narkoba).
 1. Oscore (Openness to experience)
@@ -747,7 +748,7 @@ Model Random Forest Regressor berhasil mengidentifikasi fitur-fitur yang relevan
 Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan Random Forest), digunakan tiga metrik evaluasi utama, yaitu:
 
 - **Mean Absolute Error (MAE):**
-  
+  ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/MAE.png)
   $$
   MAE = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
   $$
@@ -755,7 +756,7 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
   Metrik ini mengukur rata-rata selisih absolut antara nilai aktual dan nilai prediksi. MAE mudah dipahami karena menggunakan satuan yang sama dengan target, dan tidak terlalu sensitif terhadap outlier.
 
 - **Mean Squared Error (MSE):**
-  
+  ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/MSE.png)
   $$
   MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
   $$
@@ -763,7 +764,7 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
   MSE mengkuadratkan selisih prediksi agar penalti terhadap kesalahan besar menjadi lebih tinggi. Metrik ini lebih sensitif terhadap outlier dibanding MAE.
 
 - **R-squared (R²):**
-  
+  ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/R%20Squared.png)
   $$
   R^2 = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}
   $$
