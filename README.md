@@ -767,7 +767,7 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
   $$
   R^2 = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}
   $$
-
+  
   Metrik ini menunjukkan seberapa besar proporsi variasi dalam data target yang bisa dijelaskan oleh model. Nilai R² berkisar antara minus tak hingga sampai 1, dengan nilai mendekati 1 menandakan model yang lebih baik.
 
 
