@@ -228,8 +228,179 @@ Hal ini menunjukkan bahwa data tidak memerlukan penanganan nilai hilang.
 
 Hasil deskriptif data menunjukkan bahwa seluruh variabel numerik memiliki 1.885 data, tanpa missing values. Skor kepribadian, impulsivitas, dan sensation seeking sudah dalam bentuk z-score (mean ≈ 0, std ≈ 1), menandakan data telah dinormalisasi. Nilai minimum dan maksimum yang cukup ekstrim mengindikasikan potensi outlier. Distribusi terlihat simetris (median ≈ 0)
 
-### **Pemeriksaan Outlier dan Penanganannya
+### **Pemeriksaan Outlier dan Penanganannya**
+![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Sebelum%20penanganan%20outlier.png)
+
+Sebelum dilakukan penanganan, visualisasi boxplot pada lima dimensi skor kepribadian (Nscore, Escore, Oscore, Ascore, dan Cscore) dan impulsivitas menunjukkan adanya sejumlah outlier. Hal ini terlihat dari adanya titik-titik di luar rentang whisker pada boxplot. Meskipun data telah dinormalisasi, nilai-nilai ekstrem masih tetap dapat terdeteksi karena proses normalisasi tidak menghilangkan outlier.
+
+Penanganan dilakukan menggunakan metode Z-score, di mana data dengan nilai Z lebih dari 3 dianggap sebagai outlier. Alih-alih menghapus data tersebut, nilai outlier digantikan dengan nilai median pada masing-masing kolom. Pendekatan ini dipilih karena:
+
+- Jumlah data cukup terbatas (n = 1885) sehingga menghapus baris yang mengandung outlier berisiko mengurangi variasi dan informasi dalam data.
+
+- Mengganti outlier dengan median tetap menjaga ukuran sampel dan mencegah hilangnya pola yang mungkin penting untuk analisis selanjutnya.
+
+- Median lebih robust terhadap outlier, sehingga dapat mengurangi distorsi tanpa menggeser distribusi secara ekstrem.
+
+![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Setelah%20penanganan%20outlier.png)
+
+Setelah penanganan, boxplot menunjukkan distribusi yang lebih merata dan jumlah outlier yang jauh berkurang, terkhusus untuk Impulsive yang tidaak terdapat outlier lagi. Hal ini menunjukkan bahwa proses penggantian berhasil mereduksi nilai-nilai ekstrem tanpa mengubah pola data secara signifikan.
+
+### **Univariate Analysis**
+
+![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/KDE%20variabel%20numerik.png)
+
+Gambar di atas menampilkan histogram dengan kurva Kernel Density Estimation (KDE) untuk setiap variabel numerik dalam dataset, sebagian besar variabel kepribadian (Nscore hingga Cscore) menunjukkan pola distribusi yang cukup simetris dan menyerupai distribusi normal, yang sesuai dengan karakteristik data yang telah dinormalisasi. Sedangkan variabel Impulsive dan Sensation Seeking (SS) terlihat sedikit menyimpang dari normal, dengan bentuk yang lebih miring (skewed), menunjukkan adanya variasi atau ketidakseimbangan dalam persebaran nilai responden.
+
+![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Distribusi%20variabel%20kategorik.png)
+
+Visualisasi barplot di atas menampilkan distribusi frekuensi dari seluruh variabel kategorikal yang ada dalam dataset.
+1. Age
+
+- Mayoritas responden berusia 18–24 tahun, diikuti oleh 25–34 tahun.
+- Kelompok usia di atas 55 tahun jauh lebih sedikit.
+
+2. Gender
+
+- Komposisi hampir seimbang antara laki-laki dan perempuan.
+
+3. Education
+
+- Mayoritas berpendidikan tinggi, terutama some college dan university degree.
+- Pendidikan rendah (<18 tahun) dan doktoral jumlahnya kecil.
+
+4. Country
+
+- Responden paling banyak berasal dari UK dan USA
+- Negara lain seperti Australia, Ireland, dan New Zealand cukup kecil proporsinya.
+
+5. Ethnicity
+
+- Mayoritas adalah etnis White, kelompok etnis lain relatif sedikit.
+
+6. Penggunaan Obat (per Zat)
+
+- Caffeine dan Alcohol adalah dua zat yang paling sering digunakan oleh responden.
+
+  - Caffeine didominasi oleh kategori CL6 (Used in last day) sebanyak 1385 orang dan CL5 (Used in last week) sebanyak 273 orang.
+  - Alcohol juga tinggi, dengan dominasi di CL5 (Used in last week) sebanyak 759 orang dan CL6 (Used in last day) sebanyak 505 orang.
+
+- Cannabis dan Nicotine menunjukkan pola distribusi yang relatif merata:
+
+  - Keduanya memiliki pengguna yang tersebar di hampir semua kategori dari CL0 sampai CL6.
+  - Cannabis tertinggi di CL6 (463) dan CL0 (413), menandakan sebagian besar responden rutin menggunakan, sebagian lainnya tidak pernah.
+  - Nicotine tertinggi di CL6 (610) dan CL0 (428), menunjukkan tren serupa.
+
+- Beberapa zat seperti Amphetamines, Benzodiazepines, Ecstasy, LSD, Legal Highs, dan Magic Mushrooms juga cukup bervariasi, namun jumlah terbesar tetap berada di CL0 (tidak pernah menggunakan).
+
+- Heroin, Semer, dan Crack menunjukkan dominasi kuat di CL0:
+
+  - Heroin: 1605 responden di CL0
+  - Semer: 1877 responden di CL0
+  - Crack: 1627 responden di CL0
+    
+    Hal ini mengindikasikan bahwa sebagian besar responden tidak memiliki pengalaman dengan zat-zat tersebut.
+
+### **Multivariate Analysis**
+#### **Korelasi antar fitur numerik**
+
+![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Korelasi%20antar%20fitur%20numerik.png)
+
+Visualisasi Heatmap di atas menunjukkan korelasi antara variabel numerik sebagai berikut.
+
+**1. Korelasi Tinggi:**
+- Impulsivity (Impulsive) & Sensation Seeking (SS): korelasi 0.62 → makin impulsif seseorang, makin tinggi Sensation Seeking-nya.
+
+- Openness to Experience (Oscore) & Sensation Seeking (SS): korelasi 0.42 → orang dengan openness tinggi cenderung lebih sensation seeking.
+
+- Extraversion (Escore) & Conscientiousness (Cscore): korelasi 0.30 → ekstrovert sedikit cenderung lebih conscientious.
+
+**2. Korelasi Negatif:**
+- Neuroticism (Nscore) & Extraversion (Escore): -0.43 → neurotik cenderung kurang ekstrovert.
+
+- Neuroticism (Nscore) & Conscientiousness (Cscore): -0.38 → neurotik cenderung tidak conscientious.
+
+- Conscientiousness (Cscore) & Impulsivity (Impulsive): -0.33 → makin conscientious, makin tidak impulsif.
+
+- Conscientiousness (Cscore) & Sensation Seeking (SS): -0.24 → conscientious rendah cenderung lebih sensation seeking.
+
+**3. Korelasi Lemah:**
+- Korelasi antar sebagian besar skor (Openness to Experience (Oscore) dan Agreeableness (Ascore)) tergolong lemah atau tidak signifikan secara praktis.
+
+#### **Personality Traits vs Drug Use Alcohol**
+![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Personality%20traits%20VS%20Alcohol%20use%20categories.png)
+
+Berdasarkan visualisasi pointplot antara skor kepribadian (Big Five) dengan kategori penggunaan alkohol (CL0–CL6), ditemukan beberapa pola yang cukup konsisten:
+
+1. Nscore (Neuroticism)
+
+- Titik cenderung di bawah 0 untuk CL0–CL1 (tidak atau jarang konsumsi), naik sedikit di CL2–CL4, lalu datar.
+- Pengguna alkohol ringan cenderung punya skor neurotik lebih rendah, tapi tidak ada tren jelas meningkat untuk pengguna berat.
+
+2. Escore (Extraversion)
+
+- Skor cenderung negatif di CL2–CL3, lalu kembali naik di CL5.
+- Ada penurunan sementara untuk peminum sedang, tapi pengguna rutin cenderung lebih ekstrovert.
+
+3. Oscore (Openness)
+
+- Rata-rata skor relatif stabil, sedikit naik di CL4–CL6.
+- Tidak ada pola ekstrim, tapi peminum sering/harian sedikit lebih terbuka terhadap pengalaman baru.
+
+4. Ascore (Agreeableness)
+
+- Titik tertinggi di CL1, turun di CL2-CL6.
+- Pengguna alkohol cenderung punya skor Agreeableness lebih rendah, terutama yang makin rutin konsumsi.
+
+5. Cscore (Conscientiousness)
+
+- Jelas terlihat tinggi di CL0 dan CL1. menurun di CL2-CL6.
+- Artinya: Semakin sering konsumsi alkohol, cenderung semakin rendah skor kedisiplinan/tanggung jawabnya.
+
+**Kesimpulan**
+
+- Neuroticism & Extraversion: Fluktuatif, tapi tidak ada pola kuat yang signifikan.
+- Openness: Agak naik pada peminum berat.
+- Agreeableness & Conscientiousness*: Jelas lebih rendah pada pengguna alkohol, terutama rutin (CL4 ke atas).
+
+#### **Distribusi dan hubungan variabel demografi terhadap status penggunaan zat Alkohol**
 ![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Distribusi%20variabel%20demografi%20terhadap%20penggunaan%20alkohol.png)
+
+Berdasarkan visualisasi barplot demografi terhadap status penggunaan alcohol, dapat diketahui sebagai berikut
+
+1. Distribusi Gender terhadap Alkohol
+
+  Grafik ini menunjukkan bahwa baik pria maupun wanita paling banyak berada pada kategori konsumsi alkohol CL5 (tertinggi), disusul CL6. Pria cenderung sedikit lebih banyak pada kategori CL6, sedangkan wanita lebih dominan pada CL5. Ini mengindikasikan bahwa konsumsi alkohol tinggi terjadi pada kedua gender, dengan kecenderungan lebih tinggi pada wanita di kategori tertinggi.
+
+2. Distribusi Umur terhadap Alkohol
+
+  Kelompok umur 18–24 tahun adalah yang paling dominan dalam konsumsi alkohol tinggi (CL5 dan CL6), disusul kelompok 25–34 tahun. Semakin tua kelompok umur, konsumsi alkohol cenderung menurun. Ini menandakan bahwa konsumsi alkohol tinggi lebih umum pada usia muda.
+
+3. Distribusi Pendidikan terhadap Alkohol
+
+  Orang dengan pendidikan “University degree” paling banyak dalam kategori konsumsi alkohol tinggi (CL5), disusul oleh yang hanya memiliki “Some college/university, no degree.” Sebaliknya, mereka yang berhenti sekolah di usia muda cenderung lebih sedikit mengonsumsi alkohol. Artinya, semakin tinggi pendidikan, kecenderungan konsumsi alkohol juga meningkat.
+  
+#### **Personality vs Drug Use**
+![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Personality%20VS%20use%20drugs.png)
+
+Visualisasi Heatmap di atas menunjukkan hubungan (korelasi) antara tujuh dimensi kepribadian dan penggunaan berbagai jenis zat (obat-obatan atau narkoba).
+1. Oscore (Openness to experience)
+   Korelasi paling tinggi di antara semua dimensi kepribadian, terutama dengan LSD (0.37), Magic Mushrooms (0.37), dan Cannabis (0.41). Hal ini menunjukkan bahwa individu yang terbuka pada pengalaman baru cenderung lebih mungkin menggunakan zat-zat ini.
+
+2. SS (Sensation Seeking)
+   Korelasi positif kuat dengan berbagai zat, terutama Cannabis (0.46), LSD (0.41), dan Ecstasy (0.39). Artinya, individu yang mencari sensasi lebih tinggi lebih rentan menggunakan berbagai jenis zat.
+
+3. Impulsive
+   Juga memiliki korelasi cukup positif terhadap zat-zat seperti Cannabis (0.31), Crack (0.26), dan LSD (0.27), menunjukkan bahwa sifat impulsif bisa menjadi faktor risiko penggunaan zat.
+
+4. Cscore (Conscientiousness) dan Ascore (Agreeableness)
+   Cenderung berkorelasi negatif secara konsisten terhadap hampir semua zat. Artinya, orang yang teliti dan mudah bekerja sama cenderung lebih rendah risikonya dalam menggunakan zat.
+
+5. Nscore (Neuroticism) dan Escore (Extraversion)
+   Hubungannya lemah atau tidak konsisten terhadap sebagian besar zat, menunjukkan pengaruh yang lebih kecil atau bervariasi tergantung jenis zatnya.
+
+**Kesimpulan:**
+Sifat kepribadian seperti keterbukaan terhadap pengalaman baru, pencarian sensasi, dan impulsivitas memiliki hubungan yang paling kuat terhadap penggunaan zat. Sedangkan, sifat kehati-hatian dan keramahan menunjukkan efek protektif. Visualisasi ini penting untuk memahami faktor psikologis dalam pencegahan dan penanganan penyalahgunaan zat.
+
 
 ## Data Preparation
 ### **1. Mengubah Age Menjadi Format Numerik**
@@ -753,17 +924,17 @@ Untuk mengatasi kelemahan Linear Regression, khususnya masalah overfitting dan m
 
 | **Kategori**                | **Zat Psikoaktif** | **R² Score** | **Alpha Optimal** | **Keterangan**                                                           |
 | --------------------------- | ------------------ | ------------ | ----------------- | ------------------------------------------------------------------------ |
-| 🔝 **R² Tertinggi**         | Cannabis           | 0.4905       | 10                | Paling tinggi; menunjukkan hubungan kuat antara kepribadian & konsumsi   |
-| 🟡 Cukup tinggi             | Legal Highs        | 0.3882       | 100               | Sangat dipengaruhi oleh Sensation Seeking dan Impulsiveness              |
+| **R² Tertinggi**         | Cannabis           | 0.4905       | 10                | Paling tinggi; menunjukkan hubungan kuat antara kepribadian & konsumsi   |
+| Cukup tinggi             | Legal Highs        | 0.3882       | 100               | Sangat dipengaruhi oleh Sensation Seeking dan Impulsiveness              |
 |                             | Magic Mushrooms    | 0.3137       | 100               | Asosiasi kuat dengan openness dan sensation seeking                      |
 |                             | LSD                | 0.3080       | 10                | Hubungan stabil dengan kepribadian, khususnya openness dan agreeableness |
 |                             | Ecstasy            | 0.2510       | 100               | Kuat dengan sensation seeking dan agreeableness                          |
-| ⚠️ R² Rendah (< 0.25)       | Amphetamines       | 0.2312       | 10                | Dipengaruhi impulsiveness, tapi variasinya masih cukup tinggi            |
+| R² Rendah (< 0.25)       | Amphetamines       | 0.2312       | 10                | Dipengaruhi impulsiveness, tapi variasinya masih cukup tinggi            |
 |                             | Benzodiazepines    | 0.2038       | 100               | Cenderung dipengaruhi neuroticism                                        |
 |                             | Methadone          | 0.2236       | 10                | Faktor neuroticism dominan                                               |
 |                             | Cocaine            | 0.1927       | 100               | Sensation Seeking dominan tapi noise tinggi                              |
 |                             | Nicotine           | 0.1637       | 100               | Ada korelasi impulsiveness & neuroticism, tapi tidak terlalu kuat        |
-| 🔻 R² Sangat Rendah (\~0.0) | Alcohol            | 0.0412       | 10                | Sangat umum, variabel kepribadian kurang menjelaskan variasi konsumsi    |
+| R² Sangat Rendah (\~0.0) | Alcohol            | 0.0412       | 10                | Sangat umum, variabel kepribadian kurang menjelaskan variasi konsumsi    |
 |                             | Caffeine           | 0.0175       | 100               | Hampir semua orang konsumsi → variasi terlalu kecil                      |
 |                             | Chlorpromazine     | 0.0152       | 100               | Obat medis; tidak terpengaruh faktor psikologis                          |
 |                             | Crack              | 0.0459       | 100               | Konsumsi sangat jarang, data imbalance tinggi                            |
@@ -841,6 +1012,7 @@ Berdasarkan keterbatasan dan hasil penelitian ini, beberapa saran untuk peneliti
 4. Pendekatan Kualitatif
 
    Penelitian kualitatif untuk menggali alasan dan motivasi individu dalam mengonsumsi zat dapat memberikan wawasan yang lebih dalam untuk memperbaiki pemilihan variabel dan model prediktif.
+   
 ## Daftar Pustaka
 
 [Castaneda, J., Calvet, L., Benito, S., Tondar, A., & Juan, A. A. (2022). Data science, analytics and artificial intelligence in e-health: Trends, applications and challenges. Idescat.](https://www.idescat.cat/sort/sort471/47.1.1.Castaneda-etal.pdf)
