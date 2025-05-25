@@ -229,7 +229,7 @@ Hal ini menunjukkan bahwa data tidak memerlukan penanganan nilai hilang.
 Hasil deskriptif data menunjukkan bahwa seluruh variabel numerik memiliki 1.885 data, tanpa missing values. Skor kepribadian, impulsivitas, dan sensation seeking sudah dalam bentuk z-score (mean ≈ 0, std ≈ 1), menandakan data telah dinormalisasi. Nilai minimum dan maksimum yang cukup ekstrim mengindikasikan potensi outlier. Distribusi terlihat simetris (median ≈ 0)
 
 ### **Pemeriksaan Outlier dan Penanganannya
-![alt text]()
+![alt text](https://github.com/salmazhafira/Proyek1-Terapan/blob/main/Resources/Distribusi%20variabel%20demografi%20terhadap%20penggunaan%20alkohol.png)
 
 ## Data Preparation
 ### **1. Mengubah Age Menjadi Format Numerik**
