@@ -230,6 +230,7 @@ Hal ini menunjukkan bahwa data tidak memerlukan penanganan nilai hilang.
 Hasil deskriptif data menunjukkan bahwa seluruh variabel numerik memiliki 1.885 data, tanpa missing values. Skor kepribadian, impulsivitas, dan sensation seeking sudah dalam bentuk z-score (mean ≈ 0, std ≈ 1), menandakan data telah dinormalisasi. Nilai minimum dan maksimum yang cukup ekstrim mengindikasikan potensi outlier. Distribusi terlihat simetris (median ≈ 0)
 
 ### **Pemeriksaan Outlier dan Penanganannya**
+
 ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Sebelum%20penanganan%20outlier.png)
 
 Sebelum dilakukan penanganan, visualisasi boxplot pada lima dimensi skor kepribadian (Nscore, Escore, Oscore, Ascore, dan Cscore) dan impulsivitas menunjukkan adanya sejumlah outlier. Hal ini terlihat dari adanya titik-titik di luar rentang whisker pada boxplot. Meskipun data telah dinormalisasi, nilai-nilai ekstrem masih tetap dapat terdeteksi karena proses normalisasi tidak menghilangkan outlier.
@@ -328,6 +329,7 @@ Visualisasi Heatmap di atas menunjukkan korelasi antara variabel numerik sebagai
 - Korelasi antar sebagian besar skor (Openness to Experience (Oscore) dan Agreeableness (Ascore)) tergolong lemah atau tidak signifikan secara praktis.
 
 #### **Personality Traits vs Drug Use Alcohol**
+
 ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Personality%20traits%20VS%20Alcohol%20use%20categories.png)
 
 Berdasarkan visualisasi pointplot antara skor kepribadian (Big Five) dengan kategori penggunaan alkohol (CL0–CL6), ditemukan beberapa pola yang cukup konsisten:
@@ -364,6 +366,7 @@ Berdasarkan visualisasi pointplot antara skor kepribadian (Big Five) dengan kate
 - Agreeableness & Conscientiousness*: Jelas lebih rendah pada pengguna alkohol, terutama rutin (CL4 ke atas).
 
 #### **Distribusi dan hubungan variabel demografi terhadap status penggunaan zat Alkohol**
+
 ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Distribusi%20variabel%20demografi%20terhadap%20penggunaan%20alkohol.png)
 
 Berdasarkan visualisasi barplot demografi terhadap status penggunaan alcohol, dapat diketahui sebagai berikut
@@ -381,6 +384,7 @@ Berdasarkan visualisasi barplot demografi terhadap status penggunaan alcohol, da
   Orang dengan pendidikan “University degree” paling banyak dalam kategori konsumsi alkohol tinggi (CL5), disusul oleh yang hanya memiliki “Some college/university, no degree.” Sebaliknya, mereka yang berhenti sekolah di usia muda cenderung lebih sedikit mengonsumsi alkohol. Artinya, semakin tinggi pendidikan, kecenderungan konsumsi alkohol juga meningkat.
   
 #### **Personality vs Drug Use**
+
 ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Personality%20VS%20use%20drugs.png)
 
 Visualisasi Heatmap di atas menunjukkan hubungan (korelasi) antara tujuh dimensi kepribadian dan penggunaan berbagai jenis zat (obat-obatan atau narkoba).
@@ -409,7 +413,7 @@ Sifat kepribadian seperti keterbukaan terhadap pengalaman baru, pencarian sensas
 Kolom Age awalnya berisi data dalam bentuk rentang usia (misalnya "25-34") atau kategori berbentuk string. Karena model machine learning, khususnya regresi, membutuhkan data numerik untuk melakukan perhitungan, maka rentang tersebut dikonversi menjadi nilai tengah dari masing-masing rentang agar bisa direpresentasikan sebagai angka.
 
 Alasan:
-Model seperti regresi tidak bisa langsung memproses data dalam bentuk rentang kategori (string), karena tidak merepresentasikan hubungan numerik yang jelas. Dengan mengubah rentang usia menjadi angka tengahnya, kita mendapatkan estimasi usia yang lebih realistis dan bisa digunakan untuk analisis numerik terhadap target variabel.
+Model seperti regresi tidak bisa langsung memproses data dalam bentuk rentang kategori (string), karena tidak merepresentasikan hubungan numerik yang jelas. Dengan mengubah rentang usia menjadi angka tengahnya, didapatkan estimasi usia yang lebih realistis dan bisa digunakan untuk analisis numerik terhadap target variabel.
 
 ---
 Pada bagian ini, digunakan fungsi convert_age digunakan untuk membersihkan data usia dalam bentuk string, seperti '25-34', '65+', atau '30', menjadi nilai numerik tunggal, seperti berikut:
@@ -507,7 +511,7 @@ Linear Regression adalah model statistik sederhana dan mudah diinterpretasikan. 
 
 Kelebihan:
 
-- Mudah diinterpretasikan: kita bisa tahu seberapa besar pengaruh tiap fitur ke target.
+- Mudah diinterpretasikan: bisa tahu seberapa besar pengaruh tiap fitur ke target.
 - Cepat dilatih, bahkan pada dataset besar.
 - Cocok untuk baseline model karena sederhana.
 
@@ -748,7 +752,9 @@ Model Random Forest Regressor berhasil mengidentifikasi fitur-fitur yang relevan
 Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan Random Forest), digunakan tiga metrik evaluasi utama, yaitu:
 
 - **Mean Absolute Error (MAE):**
+  
   ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/MAE.png)
+  
   $$
   MAE = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
   $$
@@ -756,7 +762,9 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
   Metrik ini mengukur rata-rata selisih absolut antara nilai aktual dan nilai prediksi. MAE mudah dipahami karena menggunakan satuan yang sama dengan target, dan tidak terlalu sensitif terhadap outlier.
 
 - **Mean Squared Error (MSE):**
+
   ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/MSE.png)
+  
   $$
   MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
   $$
@@ -764,7 +772,9 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
   MSE mengkuadratkan selisih prediksi agar penalti terhadap kesalahan besar menjadi lebih tinggi. Metrik ini lebih sensitif terhadap outlier dibanding MAE.
 
 - **R-squared (R²):**
+  
   ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/R%20Squared.png)
+  
   $$
   R^2 = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}
   $$
@@ -776,7 +786,7 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
 
 Karena tujuan dari proyek ini adalah memprediksi tingkat penggunaan obat berdasarkan data demografi dan kepribadian, maka:
 
-- MAE & MSE cocok digunakan karena kita ingin tahu seberapa besar prediksi kita meleset dari nilai sebenarnya.
+- MAE & MSE cocok digunakan untuk mengetahui seberapa besar prediksi meleset dari nilai sebenarnya.
 - R² penting untuk melihat apakah model benar-benar menangkap pola dari data. Ini membantu mengevaluasi apakah model punya daya prediksi yang kuat.
 
 
