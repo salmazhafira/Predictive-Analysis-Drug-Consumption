@@ -45,7 +45,9 @@ Berdasarkan tujuan yang telah dirumuskan, solusi yang diajukan untuk mencapai go
 ### Data Loading
 Penelitian ini menggunakan dataset Drug Consumption (Quantified) yang diperoleh dari [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/373/drug+consumption+quantified), dan pertama kali dipublikasikan oleh Fehrman et al. (2017). Dataset ini dikumpulkan melalui survei daring terhadap 1.885 responden dewasa, yang berasal dari berbagai negara, terutama kawasan Eropa dan Amerika Utara.
 
-Setelah dimuat ke dalam lingkungan Python, dataset ini awalnya tersedia dalam format .data (plaintext), kemudian dikonversi ke format .csv (comma-separated values) untuk mempermudah proses interpretasi, visualisasi, serta analisis menggunakan perangkat lunak statistik dan machine learning berbasis Python. Selain itu, nama-nama kolom yang semula berupa angka (1, 2, 3, dan seterusnya) telah diubah menjadi label fitur yang lebih deskriptif dan informatif, sesuai dengan dokumentasi asli, guna meningkatkan keterbacaan dan kemudahan analisis. Lebih lanjut, nilai-nilai numerik pada beberapa variabel kategorikal seperti usia, jenis kelamin, pendidikan, dan etnis diinterpretasikan ulang ke dalam bentuk label kategori yang representatif—misalnya, nilai -0.95197 pada variabel usia diubah menjadi '18-24', dan nilai 0.48246 pada variabel jenis kelamin menjadi 'Female'. Transformasi ini dilakukan agar data lebih mudah dianalisis dan dipahami, terutama dalam konteks visualisasi maupun pemodelan prediktif.
+Dataset Drug Consumption (Quantified) dimuat langsung dari repositori UCI Machine Learning menggunakan fungsi pd.read_csv() dari pustaka pandas, dengan URL sumber data yang mengarah ke file `.data` berformat plaintext. Karena file tersebut tidak memiliki header, nama-nama kolom ditentukan secara manual menggunakan parameter columns, berdasarkan dokumentasi resmi UCI. Konversi ini dilakukan agar dataset lebih mudah dibaca, dianalisis, dan diolah dalam ekosistem Python, khususnya untuk keperluan data preprocessing, visualisasi, maupun pengembangan model machine learning.
+
+Setelah kolom diberi label, langkah selanjutnya dalam pengolahan data melibatkan transformasi nilai-nilai numerik pada variabel demografis dan kepribadian menjadi label kategori yang lebih representatif. Misalnya, nilai -0.95197 pada kolom *Age* diubah menjadi *“18-24”*, dan nilai 0.48246 pada kolom *Gender* dikonversi menjadi *“Female”*. Transformasi semacam ini dilakukan untuk meningkatkan keterbacaan data serta mendukung interpretasi hasil analisis, terutama saat visualisasi data atau eksplorasi hubungan antar variabel.
 
 Secara keseluruhan, dataset terdiri dari 1.885 baris, di mana setiap baris merepresentasikan satu individu. Terdapat 32 kolom yang mencakup atribut psikologis, demografis, serta informasi terkait penggunaan 18 jenis zat psikoaktif. Setiap entri dalam dataset ini menggambarkan kombinasi dari karakteristik kepribadian, latar belakang demografi, dan pola konsumsi zat yang dilaporkan oleh masing-masing responden.
 
@@ -755,30 +757,18 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
   
   ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/MAE.png)
   
-  $$
-  MAE = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
-  $$
-
   Metrik ini mengukur rata-rata selisih absolut antara nilai aktual dan nilai prediksi. MAE mudah dipahami karena menggunakan satuan yang sama dengan target, dan tidak terlalu sensitif terhadap outlier.
 
 - **Mean Squared Error (MSE):**
 
   ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/MSE.png)
   
-  $$
-  MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
-  $$
-
   MSE mengkuadratkan selisih prediksi agar penalti terhadap kesalahan besar menjadi lebih tinggi. Metrik ini lebih sensitif terhadap outlier dibanding MAE.
 
 - **R-squared (R²):**
   
   ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/R%20Squared.png)
-  
-  $$
-  R^2 = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}
-  $$
-  
+   
   Metrik ini menunjukkan seberapa besar proporsi variasi dalam data target yang bisa dijelaskan oleh model. Nilai R² berkisar antara minus tak hingga sampai 1, dengan nilai mendekati 1 menandakan model yang lebih baik.
 
 
