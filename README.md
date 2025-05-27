@@ -231,31 +231,13 @@ Hal ini menunjukkan bahwa data tidak memerlukan penanganan nilai hilang.
 
 Hasil deskriptif data menunjukkan bahwa seluruh variabel numerik memiliki 1.885 data, tanpa missing values. Skor kepribadian, impulsivitas, dan sensation seeking sudah dalam bentuk z-score (mean ≈ 0, std ≈ 1), menandakan data telah dinormalisasi. Nilai minimum dan maksimum yang cukup ekstrim mengindikasikan potensi outlier. Distribusi terlihat simetris (median ≈ 0)
 
-### **Pemeriksaan Outlier dan Penanganannya**
-
-![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Sebelum%20penanganan%20outlier.png)
-
-Sebelum dilakukan penanganan, visualisasi boxplot pada lima dimensi skor kepribadian (Nscore, Escore, Oscore, Ascore, dan Cscore) dan impulsivitas menunjukkan adanya sejumlah outlier. Hal ini terlihat dari adanya titik-titik di luar rentang whisker pada boxplot. Meskipun data telah dinormalisasi, nilai-nilai ekstrem masih tetap dapat terdeteksi karena proses normalisasi tidak menghilangkan outlier.
-
-Penanganan dilakukan menggunakan metode Z-score, di mana data dengan nilai Z lebih dari 3 dianggap sebagai outlier. Alih-alih menghapus data tersebut, nilai outlier digantikan dengan nilai median pada masing-masing kolom. Pendekatan ini dipilih karena:
-
-- Jumlah data cukup terbatas (n = 1885) sehingga menghapus baris yang mengandung outlier berisiko mengurangi variasi dan informasi dalam data.
-
-- Mengganti outlier dengan median tetap menjaga ukuran sampel dan mencegah hilangnya pola yang mungkin penting untuk analisis selanjutnya.
-
-- Median lebih robust terhadap outlier, sehingga dapat mengurangi distorsi tanpa menggeser distribusi secara ekstrem.
-
-![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Setelah%20penanganan%20outlier.png)
-
-Setelah penanganan, boxplot menunjukkan distribusi yang lebih merata dan jumlah outlier yang jauh berkurang, terkhusus untuk Impulsive yang tidaak terdapat outlier lagi. Hal ini menunjukkan bahwa proses penggantian berhasil mereduksi nilai-nilai ekstrem tanpa mengubah pola data secara signifikan.
-
 ### **Univariate Analysis**
 
-![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/KDE%20variabel%20numerik.png)
+![KDE variabel numerik](https://github.com/user-attachments/assets/dbbdb7b2-a49d-48f0-af9d-0bd84072db75)
 
 Gambar di atas menampilkan histogram dengan kurva Kernel Density Estimation (KDE) untuk setiap variabel numerik dalam dataset, sebagian besar variabel kepribadian (Nscore hingga Cscore) menunjukkan pola distribusi yang cukup simetris dan menyerupai distribusi normal, yang sesuai dengan karakteristik data yang telah dinormalisasi. Sedangkan variabel Impulsive dan Sensation Seeking (SS) terlihat sedikit menyimpang dari normal, dengan bentuk yang lebih miring (skewed), menunjukkan adanya variasi atau ketidakseimbangan dalam persebaran nilai responden.
 
-![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Distribusi%20variabel%20kategorik.png)
+![Distribusi variabel kategorik](https://github.com/user-attachments/assets/00986d98-f1d2-4725-84e7-f04d38ce5f18)
 
 Visualisasi barplot di atas menampilkan distribusi frekuensi dari seluruh variabel kategorikal yang ada dalam dataset.
 1. Age
@@ -307,7 +289,7 @@ Visualisasi barplot di atas menampilkan distribusi frekuensi dari seluruh variab
 ### **Multivariate Analysis**
 #### **Korelasi antar fitur numerik**
 
-![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Korelasi%20antar%20fitur%20numerik.png)
+![Korelasi antar fitur numerik](https://github.com/user-attachments/assets/1a30a834-c32c-44f4-83bb-9aee6f1892e2)
 
 Visualisasi Heatmap di atas menunjukkan korelasi antara variabel numerik sebagai berikut.
 
@@ -332,7 +314,7 @@ Visualisasi Heatmap di atas menunjukkan korelasi antara variabel numerik sebagai
 
 #### **Personality Traits vs Drug Use Alcohol**
 
-![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Personality%20traits%20VS%20Alcohol%20use%20categories.png)
+![Personality traits VS Alcohol use categories](https://github.com/user-attachments/assets/d878f85f-0956-4ab6-9d81-b19a1a987157)
 
 Berdasarkan visualisasi pointplot antara skor kepribadian (Big Five) dengan kategori penggunaan alkohol (CL0–CL6), ditemukan beberapa pola yang cukup konsisten:
 
@@ -369,7 +351,7 @@ Berdasarkan visualisasi pointplot antara skor kepribadian (Big Five) dengan kate
 
 #### **Distribusi dan hubungan variabel demografi terhadap status penggunaan zat Alkohol**
 
-![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Distribusi%20variabel%20demografi%20terhadap%20penggunaan%20alkohol.png)
+![Distribusi variabel demografi terhadap penggunaan alkohol](https://github.com/user-attachments/assets/e0aed2f8-8f51-4d53-b8e2-f2751461a6b9)
 
 Berdasarkan visualisasi barplot demografi terhadap status penggunaan alcohol, dapat diketahui sebagai berikut
 
@@ -387,7 +369,7 @@ Berdasarkan visualisasi barplot demografi terhadap status penggunaan alcohol, da
   
 #### **Personality vs Drug Use**
 
-![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/Personality%20VS%20use%20drugs.png)
+![Personality VS use drugs](https://github.com/user-attachments/assets/27e7cdc7-32d8-4ae3-81d5-73755c1f8cf3)
 
 Visualisasi Heatmap di atas menunjukkan hubungan (korelasi) antara tujuh dimensi kepribadian dan penggunaan berbagai jenis zat (obat-obatan atau narkoba).
 1. Oscore (Openness to experience)
@@ -410,7 +392,39 @@ Sifat kepribadian seperti keterbukaan terhadap pengalaman baru, pencarian sensas
 
 
 ## Data Preparation
-### **1. Mengubah Age Menjadi Format Numerik**
+### **1. Menghapus fitur ID**
+Pada tahap awal pemuatan data (data loading), kolom identifikasi (ID) dihapus karena tidak memiliki kontribusi informasi terhadap proses analisis maupun pemodelan. Kolom ini hanya berfungsi sebagai penanda unik untuk setiap entri dan tidak mengandung nilai yang relevan untuk dianalisis secara statistik atau digunakan dalam model prediktif. 
+
+Alasan: Penghapusan kolom ini adalah karena ID bersifat unik untuk setiap individu, sehingga tidak merepresentasikan pola atau hubungan apa pun dengan variabel target. Bahkan, menyertakan kolom seperti ini dapat menyebabkan model machine learning salah mengenali pola dan meningkatkan risiko overfitting, terutama pada algoritma berbasis pohon keputusan. Oleh karena itu, penghapusan dilakukan sejak awal agar **proses eksplorasi data** menjadi lebih efisien dan fokus hanya pada fitur-fitur yang bersifat informatif.
+
+### **2. Pemeriksaan Outlier dan Penanganannya**
+
+Outlier adalah nilai-nilai ekstrem pada beberapa variabel numerik yang dapat memengaruhi distribusi data dan hasil analisis. Penanganan outlier dilakukan untuk memastikan kualitas data tetap terjaga dan model prediktif dapat bekerja secara optimal.
+
+Alasan:
+
+1. Outlier perlu dianalisis secara menyeluruh sebelum dilakukan penanganan agar tidak menghapus data yang sebenarnya valid dan penting.
+2. Penanganan outlier yang terlalu dini berisiko menghilangkan informasi yang relevan dan mengubah distribusi data secara signifikan.
+3. Outlier yang tidak ditangani dapat menyebabkan distorsi distribusi data dan menurunkan performa model, terutama pada algoritma yang sensitif terhadap nilai ekstrem.
+
+![Sebelum penanganan outlier](https://github.com/user-attachments/assets/4ebe046f-d5b7-4f15-8245-762b0d29a69d)
+
+Sebelum dilakukan penanganan, visualisasi boxplot pada lima dimensi skor kepribadian (Nscore, Escore, Oscore, Ascore, dan Cscore) dan impulsivitas menunjukkan adanya sejumlah outlier. Hal ini terlihat dari adanya titik-titik di luar rentang whisker pada boxplot. Meskipun data telah dinormalisasi, nilai-nilai ekstrem masih tetap dapat terdeteksi karena proses normalisasi tidak menghilangkan outlier.
+
+Penanganan dilakukan menggunakan metode Z-score, di mana data dengan nilai Z lebih dari 3 dianggap sebagai outlier. Alih-alih menghapus data tersebut, nilai outlier digantikan dengan nilai median pada masing-masing kolom. Pendekatan ini dipilih karena:
+
+- Jumlah data cukup terbatas (n = 1885) sehingga menghapus baris yang mengandung outlier berisiko mengurangi variasi dan informasi dalam data.
+
+- Mengganti outlier dengan median tetap menjaga ukuran sampel dan mencegah hilangnya pola yang mungkin penting untuk analisis selanjutnya.
+
+- Median lebih robust terhadap outlier, sehingga dapat mengurangi distorsi tanpa menggeser distribusi secara ekstrem.
+
+![Setelah penanganan outlier](https://github.com/user-attachments/assets/c34dcc73-39e4-435d-a19b-053e73e28ab4)
+
+Setelah penanganan, boxplot menunjukkan distribusi yang lebih merata dan jumlah outlier yang jauh berkurang, terkhusus untuk Impulsive yang tidaak terdapat outlier lagi. Hal ini menunjukkan bahwa proses penggantian berhasil mereduksi nilai-nilai ekstrem tanpa mengubah pola data secara signifikan.
+
+
+### **3. Mengubah Age Menjadi Format Numerik**
 
 Kolom Age awalnya berisi data dalam bentuk rentang usia (misalnya "25-34") atau kategori berbentuk string. Karena model machine learning, khususnya regresi, membutuhkan data numerik untuk melakukan perhitungan, maka rentang tersebut dikonversi menjadi nilai tengah dari masing-masing rentang agar bisa direpresentasikan sebagai angka.
 
@@ -432,7 +446,7 @@ Pada bagian ini, digunakan fungsi convert_age digunakan untuk membersihkan data 
 
 Fungsi ini diterapkan ke kolom 'Age' menggunakan df['Age'].apply(convert_age) untuk memastikan semua nilai usia dalam bentuk numerik.
 
-### **2. Mapping Target ke Bentuk Numerik**
+### **4. Mapping Target ke Bentuk Numerik**
 
 
 Target awal jenis obat berupa kategori teks, seperti berikut:
@@ -450,7 +464,7 @@ Alasan:
 Model regresi tidak dapat memproses data target dalam bentuk teks. Oleh karena itu, diperlukan konversi ke angka ordinal agar model bisa mengenali urutan tingkat frekuensi konsumsi, dari yang paling jarang (misalnya tidak pernah) hingga yang paling sering. Pendekatan ini membantu model memahami pola hubungan antara fitur-fitur input dengan tingkat konsumsi target secara lebih tepat.
 
 
-### **3. Pemiilihan Fitur dan Target**
+### **5. Pemiilihan Fitur dan Target**
 Fitur yang digunakan disesuaikan dengan rumusan masalah, yaitu terdiri dari:
 
 - Fitur demografi: Age, Gender, Education, Country, Ethnicity
@@ -463,7 +477,7 @@ Alasan:
 Pemilihan fitur dilakukan secara selektif untuk memastikan bahwa hanya variabel yang relevan dengan perilaku konsumsi obat yang digunakan. Fitur demografi dan psikologis dianggap memiliki pengaruh terhadap kebiasaan tersebut, sesuai dengan dasar teori dan rumusan masalah.
 Selain itu, target juga harus dalam bentuk numerik agar dapat digunakan dalam model regresi. Hal ini memungkinkan model untuk belajar pola hubungan antara karakteristik individu dengan tingkat frekuensi penggunaan obat secara efektif.
 
-### **4. Encoding Fitur Kategori**
+### **6. Encoding Fitur Kategori**
 
 
 Beberapa fitur seperti Gender, Education, Country, dan Ethnicity merupakan data kategorikal dalam bentuk string. Agar bisa digunakan dalam model machine learning, fitur-fitur ini perlu diubah ke format numerik menggunakan
@@ -478,7 +492,7 @@ Model machine learning, terutama yang berbasis numerik seperti regresi, tidak da
 ---
 Pada bagian ini, dilakukan encoding fitur kategorikal (Gender, Education, Country, Ethnicity) menjadi vektor one-hot, dan menggabungkannya dengan fitur numerik lain (seperti Age, skor kepribadian, dll) menjadi satu DataFrame numerik.
 
-### **5. Split Data Train-Test**
+### **7. Split Data Train-Test**
 
 Data dibagi menjadi dua bagian:
 
@@ -492,7 +506,7 @@ Tujuan dari membagi data adalah agar model bisa dilatih pada satu bagian data la
 
 - Menghindari overfitting
 - Memastikan model bisa beradaptasi dengan data baru yang belum pernah muncul sebelumnya
-### **6. Transform Data dengan Preprocessing Pipeline**
+### **8. Transform Data dengan Preprocessing Pipeline**
 
 Digunakan preprocessing pipeline untuk mengatur proses transformasi data, terutama pada fitur kategorikal.
 
@@ -525,29 +539,118 @@ Kekurangan:
 
 
 #### **Tahapan dan Parameter Pemodelan**
+1. `LinearRegression()` dari `sklearn.linear_model`
 
-1. Inisialisasi Model:
+  - Fungsi:
 
-   ```python
-   model = LinearRegression()
-   ```
+  Membuat model regresi linear yang digunakan untuk memprediksi nilai kontinu (numerik) berdasarkan fitur-fitur input.
 
-   Tidak ada hyperparameter khusus pada LinearRegression dari `sklearn`.
+  - Parameter default yang digunakan:
 
-2. Training Model:
-   Model dilatih untuk masing-masing dari 19 jenis obat (target variabel: y1 sampai y19) menggunakan data yang sudah diproses (X_train_processed, y_train_i).
+  ```python
+  LinearRegression(
+      fit_intercept=True, 
+      copy_X=True, 
+      n_jobs=None, 
+      positive=False
+  )
+  ```
 
-3. Evaluasi:
-   Model dievaluasi dengan metrik:
+  Keterangan :
 
-   - MAE (Mean Absolute Error)
-   - MSE (Mean Squared Error)
-   - R² (Koefisien Determinasi)
+| Parameter       | Nilai Default | Penjelasan                                                                                                              |
+| --------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `fit_intercept` | `True`        | Jika `True`, model akan menghitung intersep (bias). Jika `False`, model mengasumsikan bahwa data sudah berpusat di nol. |
+| `copy_X`        | `True`        | Jika `True`, data X akan disalin sebelum diproses. Jika `False`, dapat mempercepat komputasi tapi berisiko mengubah X.  |
+| `n_jobs`        | `None`        | Jumlah core CPU yang digunakan untuk komputasi. `None` berarti hanya satu core yang digunakan.                          |
+| `positive`      | `False`       | Jika `True`, model membatasi koefisien agar bernilai positif saja. Digunakan untuk kasus khusus seperti prediksi harga. |
 
-   Semua metrik dihitung menggunakan test set (X_test_processed, y_test_i).
 
-4. Koefisien:
-   Koefisien dari setiap fitur disimpan dalam DataFrame, untuk dianalisis pengaruhnya terhadap setiap jenis obat.
+2. `model.fit(X_train_processed, y_train_i)`
+
+  - Fungsi:
+
+  Melatih (training) model Linear Regression menggunakan data fitur (`X_train_processed`) dan target (`y_train_i`).
+
+3. `model.predict(X_test_processed)`
+
+  - Fungsi:
+
+  Menggunakan model yang sudah dilatih untuk memprediksi nilai target dari data uji (`X_test_processed`).
+
+
+4. Metrik Evaluasi:
+
+  Ketiga metrik ini digunakan untuk mengukur performa model pada data uji (`y_test_i` vs `y_pred`):
+
+  a)  `mean_absolute_error(y_test_i, y_pred)`
+
+  * Fungsi: Mengukur rata-rata dari selisih absolut antara nilai prediksi dan nilai aktual.
+  * Interpretasi: Semakin kecil MAE, semakin akurat prediksi model.
+  * Rumus:
+
+  $$
+  MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+  $$
+
+
+b) `mean_squared_error(y_test_i, y_pred)`
+
+  * Fungsi: Mengukur rata-rata dari kuadrat selisih antara prediksi dan aktual.
+  * Interpretasi: Lebih sensitif terhadap outlier dibanding MAE.
+  * Rumus:
+
+  $$
+  MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+  $$
+
+c)  `r2_score(y_test_i, y_pred)`
+
+  * Fungsi: Koefisien determinasi (R²), mengukur seberapa baik model menjelaskan variabilitas target.
+
+    * Nilai mendekati 1: Model menjelaskan variabilitas dengan baik.
+    * Nilai 0: Model tidak lebih baik dari rata-rata.
+    * Nilai negatif: Model lebih buruk dari model rata-rata.
+  * Rumus:
+
+  $$
+  R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}
+  $$
+
+5. `model.coef_`
+
+* Fungsi: Menyimpan nilai koefisien (bobot) dari masing-masing fitur pada model.
+
+  * Positif: Fitur berkontribusi menaikkan nilai prediksi.
+  * Negatif: Fitur berkontribusi menurunkan nilai prediksi.
+  * Nilai mendekati 0: Pengaruh fitur kecil atau tidak signifikan.
+
+6. `pd.DataFrame(coefs_lr, columns=all_cols)`
+
+  * Fungsi: Menyusun semua koefisien dari model ke dalam DataFrame untuk setiap target (misalnya, jenis zat tertentu).
+  * Ditambahkan kolom:
+
+    * `"Drug"`: Nama target/zat yang diprediksi.
+    * `"R²"`: Skor R² dari masing-masing model.
+  * Reorganisasi kolom dilakukan untuk menyusun dataframe agar `Drug`, `R²`, dan semua koefisien fitur tampil berurutan.
+
+7. Looping (`for i in range(1, 20):`)
+
+  Fungsi:
+
+  * Melakukan proses pelatihan dan evaluasi untuk **19 jenis zat (drug)** yang berbeda.
+  * Asumsi: Anda memiliki 19 pasang `y_train_i` dan `y_test_i` untuk masing-masing zat.
+  * Setiap iterasi menyimpan hasil evaluasi dan koefisien dari model Linear Regression tersebut.
+
+---
+
+#### Ringkasan
+
+* Tujuan kode: Melatih 19 model regresi linear, satu untuk setiap zat, mengevaluasi performanya, dan menyimpan koefisien model.
+* Parameter penting: `fit_intercept=True` untuk menangkap bias/intersep, `model.coef_` untuk analisis fitur, `r2_score` untuk kualitas model.
+* Evaluasi dilakukan dengan MAE, MSE, dan R².
+* Output akhir: Tabel koefisien yang lengkap untuk semua zat dengan skor R², digunakan untuk interpretasi model.
+
 ---
 **Tabel. Ringkasan Koefisien Model Regresi Linear**
 
@@ -651,29 +754,95 @@ Kekurangan:
 
 
 #### **Tahapan Pemodelan dan Parameter**
+1. `RandomForestRegressor()` dari `sklearn.ensemble`
 
-1. Inisialisasi Model:
+  - Fungsi:
 
-   ```python
-   rf_model = RandomForestRegressor(random_state=42)
-   ```
+  Membuat model regresi ensambel berbasis decision tree yang menggabungkan banyak pohon untuk meningkatkan akurasi dan mengurangi overfitting.
 
-   Default parameter digunakan (bisa dilakukan tuning di tahap lanjutan).
+  - Parameter yang digunakan:
 
-2. Training Model:
-   Model dilatih untuk masing-masing dari 19 target (obat) menggunakan data training hasil preprocessing.
+  ```python
+  RandomForestRegressor(random_state=42)
+  ```
 
-3. Evaluasi:
-   Evaluasi dilakukan pada data test menggunakan:
+| Parameter      | Nilai | Fungsi                                                                                      |
+| -------------- | ----- | ------------------------------------------------------------------------------------------- |
+| `random_state` | `42`  | Menetapkan seed agar hasil eksperimen bisa direproduksi (konsisten setiap kali dijalankan). |
 
-   - MAE (Mean Absolute Error)
-   - MSE (Mean Squared Error)
-   - R² Score
+> Catatan:hanya `random_state` yang ditentukan, parameter lainnya akan menggunakan **default value**.
 
-   Semua nilai dimasukkan ke dalam list `mae_rf`, `mse_rf`, dan `r2_rf`.
+- Parameter Default:
 
-4. Feature Importance:
-   Untuk setiap model, dihitung importance masing-masing fitur. Importance ini menggambarkan kontribusi relatif fitur dalam prediksi.
+| Parameter           | Default           | Penjelasan                                                                                                          |
+| ------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `n_estimators`      | `100`             | Jumlah pohon (trees) dalam forest. Lebih banyak biasanya meningkatkan performa, tapi juga menambah waktu komputasi. |
+| `criterion`         | `"squared_error"` | Ukuran untuk membagi node (untuk regresi: MSE).                                                                     |
+| `max_depth`         | `None`            | Tidak ada batasan kedalaman pohon, memungkinkan pertumbuhan hingga daun murni atau terlalu kecil.                   |
+| `min_samples_split` | `2`               | Minimum sampel untuk membagi node internal.                                                                         |
+| `min_samples_leaf`  | `1`               | Minimum sampel pada setiap daun.                                                                                    |
+| `max_features`      | `"auto"`          | Jumlah fitur yang dipertimbangkan saat mencari split terbaik. Untuk regresi, default-nya adalah `n_features`.       |
+| `bootstrap`         | `True`            | Menggunakan bootstrapping (sampling dengan pengembalian) untuk membangun setiap pohon.                              |
+| `n_jobs`            | `None`            | Menentukan jumlah CPU core. `None` artinya hanya 1 core yang digunakan.                                             |
+| `oob_score`         | `False`           | Jika `True`, model akan menghitung skor "Out-of-Bag" sebagai validasi internal.                                     |
+| `verbose`           | `0`               | Tidak menampilkan log saat training.                                                                                |
+
+2. `rf_model.fit(X_train_processed, y_train_i)`
+
+  Fungsi:
+
+  Melatih model Random Forest menggunakan fitur (`X_train_processed`) dan target (`y_train_i`).
+
+  > Setiap iterasi dilakukan untuk 1 target zat (misalnya alkohol, heroin, dsb).
+
+3. `rf_model.predict(X_test_processed)`
+
+  Fungsi:
+
+  Menggunakan model yang telah dilatih untuk memprediksi nilai pada data uji.
+
+4. Metrik Evaluasi
+
+  Digunakan untuk mengevaluasi akurasi model pada data uji.
+
+  a) `mean_absolute_error(y_test_i, y_pred_rf)`
+
+  * Mengukur rata-rata selisih absolut antara nilai prediksi dan aktual.
+  * Semakin kecil nilainya, semakin baik prediksi model.
+
+  b) `mean_squared_error(y_test_i, y_pred_rf)`
+
+  * Mengukur rata-rata kuadrat dari selisih antara prediksi dan aktual.
+  * Lebih sensitif terhadap kesalahan besar (outlier).
+
+  c) `r2_score(y_test_i, y_pred_rf)`
+
+  * Mengukur seberapa baik model menjelaskan variasi target.
+  * Nilai berkisar dari -∞ hingga 1. Nilai lebih dekat ke 1 berarti prediksi bagus.
+
+5. `rf_model.feature_importances_`
+
+  Fungsi:
+
+  Mengembalikan pentingnya setiap fitur dalam prediksi model (semakin besar nilainya, semakin penting fitur tersebut).
+
+  > Metode ini berdasarkan berapa banyak fitur digunakan untuk memecah node dalam semua pohon dan seberapa besar pengurangan impurity yang terjadi.
+
+6. `pd.DataFrame(importances_rf, columns=all_cols)`
+
+  - Fungsi:
+
+  Membuat tabel yang berisi:
+
+  * Feature importances (importance setiap fitur dalam model)
+  * Nama zat (`Drug`) sebagai target
+  * Nilai R² (`R²`) sebagai indikator performa
+
+7. Loop `for i in range(1, 20):`
+
+* Melakukan iterasi 19 kali, masing-masing untuk satu jenis target (zat).
+* Setiap model dilatih dan diuji secara terpisah.
+
 ---
 **Tabel. Ringkasan Feature Importance**
 #### **1. Faktor Psikologis Kepribadian**
@@ -755,20 +924,20 @@ Untuk mengukur performa dari model regresi yang dibangun (Linear Regression dan 
 
 - **Mean Absolute Error (MAE):**
   
-  ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/MAE.png)
+![MAE](https://github.com/user-attachments/assets/aa813013-358c-43ad-a417-94270e270999)
   
   Metrik ini mengukur rata-rata selisih absolut antara nilai aktual dan nilai prediksi. MAE mudah dipahami karena menggunakan satuan yang sama dengan target, dan tidak terlalu sensitif terhadap outlier.
 
 - **Mean Squared Error (MSE):**
 
-  ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/MSE.png)
-  
+![MSE](https://github.com/user-attachments/assets/7cd5179f-7749-4937-8a81-0575ad67380a)
+
   MSE mengkuadratkan selisih prediksi agar penalti terhadap kesalahan besar menjadi lebih tinggi. Metrik ini lebih sensitif terhadap outlier dibanding MAE.
 
 - **R-squared (R²):**
   
-  ![alt text](https://github.com/salmazhafira/Proyek1-Machine-Learning-Terapan/blob/main/Resources/R%20Squared.png)
-   
+![R Squared](https://github.com/user-attachments/assets/10b23f4d-1d04-4e32-a213-96b915dca8ae)
+
   Metrik ini menunjukkan seberapa besar proporsi variasi dalam data target yang bisa dijelaskan oleh model. Nilai R² berkisar antara minus tak hingga sampai 1, dengan nilai mendekati 1 menandakan model yang lebih baik.
 
 
@@ -782,11 +951,62 @@ Karena tujuan dari proyek ini adalah memprediksi tingkat penggunaan obat berdasa
 
 ### 3. **Penjelasan Hasil Proyek Berdasarkan Metrik**
 
-Evaluasi dilakukan untuk **setiap target obat (y₁ sampai y₁₉)** dan hasilnya dikompilasi dalam bentuk DataFrame (`eval_df`) yang menyajikan nilai MAE, MSE, dan R² untuk setiap model:
+Evaluasi dilakukan untuk setiap target zat (obat), yaitu dari y₁ sampai y₁₉. Untuk setiap target, dua model dibandingkan: Linear Regression dan Random Forest.
+
+Setiap iterasi menyimpan hasil evaluasi ke dalam list results, yang kemudian dikonversi menjadi DataFrame eval_df. Struktur tabel mencakup:
+
+Target: Nama variabel target (misalnya, y_1, y_2, ..., y_19)
+
+- Drug: Nama zat terkait target
+
+- Model: Tipe model regresi yang digunakan
+
+- MAE, MSE, R²: Metrik evaluasi
+
+### 4. **Penjelasan Kode Tambahan**
+
+a) `results = []`
+
+* List kosong yang akan menyimpan hasil evaluasi dari masing-masing model dan target.
+
+b) Loop `for i in range(1, 20):`
+
+* Iterasi sebanyak 19 kali, sesuai dengan jumlah target zat (`y_1` sampai `y_19`).
+
+c) dalam setiap iterasi:
 
 ```python
-print(eval_df)
+mae_lr_i = mae_lr[i-1]
+mse_lr_i = mse_lr[i-1]
+r2_lr_i = r2_lr[i-1]
 ```
+
+* Mengambil hasil evaluasi model Linear Regression dari list sebelumnya (hasil evaluasi yang sudah dihitung di script sebelumnya).
+
+```python
+mae_rf_i = mae_rf[i-1]
+mse_rf_i = mse_rf[i-1]
+r2_rf_i = r2_rf[i-1]
+```
+
+* Mengambil hasil evaluasi model Random Forest dari list sebelumnya.
+
+d) Menambahkan hasil ke `results`
+
+```python
+results.append({...})
+```
+
+* Dua dictionary ditambahkan per iterasi: satu untuk Linear Regression, satu untuk Random Forest.
+
+e) Membuat DataFrame:
+
+```python
+eval_df = pd.DataFrame(results)
+```
+
+* DataFrame `eval_df` adalah hasil akhir evaluasi yang berisi seluruh metrik untuk semua model dan target.
+
 ---
 
 **Tabel. Hasil Evaluasi**
@@ -919,6 +1139,48 @@ Untuk mengatasi kelemahan Linear Regression, khususnya masalah overfitting dan m
   - Model di-loop sebanyak 19 kali, masing-masing untuk satu target (zat psikoaktif berbeda).
   - Setiap iterasi melakukan tuning dan fitting model yang independen.
   - Hal ini memungkinkan model menangkap karakteristik unik dari masing-masing zat, karena efek prediktor bisa berbeda-beda.
+
+**Tahapan Pemodelan dan Parameter**
+1. `Ridge()`
+
+  Inisialisasi model Ridge Regression:
+
+  * `alpha`: Parameter regularisasi L2. Dicari secara otomatis melalui `GridSearchCV` dari daftar `[0.01, 0.1, 1, 10, 100]`.
+  * `fit_intercept=True`: Model menghitung nilai intercept secara otomatis.
+  * `solver='auto'` *(default)*: Scikit-learn akan memilih algoritma terbaik berdasarkan data.
+
+2. `alpha_list = [0.01, 0.1, 1, 10, 100]`
+
+  Daftar nilai alpha (hyperparameter) yang diuji:
+
+  * `0.01`: Hampir tanpa regularisasi, mirip Linear Regression.
+  * `0.1`–`1`: Regularisasi ringan–sedang.
+  * `10`–`100`: Regularisasi kuat.
+
+| Parameter       | Default  | Fungsi                                            |
+| --------------- | -------- | ------------------------------------------------- |
+| `alpha`         | `1.0`    | Kekuatan regularisasi L2                          |
+| `fit_intercept` | `True`   | Menentukan apakah akan menghitung intercept       |
+| `solver`        | `'auto'` | Algoritma optimisasi, default akan pilih otomatis |
+| `max_iter`      | `None`   | Iterasi maksimum (jika solver iteratif)           |
+| `tol`           | `1e-3`   | Toleransi konvergensi                             |
+
+
+3. `GridSearchCV(estimator=ridge, param_grid={'alpha': alpha_list}, cv=5)`
+
+  Melakukan pencarian alpha terbaik dengan Cross-Validation:
+
+  * `param_grid`: Dictionary berisi daftar parameter (`alpha`) yang diuji.
+  * `cv=5`: 5-fold cross-validation. Data pelatihan dibagi menjadi 5 bagian, model dilatih pada 4 bagian dan divalidasi pada 1 bagian secara bergiliran.
+  * `scoring`: Default-nya menggunakan R² untuk regresi. Dapat diubah ke MSE atau MAE jika diinginkan.
+
+| Parameter    | Fungsi                                                         |
+| ------------ | -------------------------------------------------------------- |
+| `param_grid` | Daftar nilai hyperparameter yang akan dicoba                   |
+| `cv`         | Jumlah fold untuk cross-validation                             |
+| `scoring`    | Metrik penilaian selama tuning (default: R² untuk regresi)     |
+| `n_jobs`     | Jumlah core CPU yang digunakan (gunakan `-1` untuk semua core) |
+
 
 ---
 **Tabel. Ringkasan Hasil Terbaik Ridge Regression untuk Prediksi Konsumsi Zat Psikoaktif**
